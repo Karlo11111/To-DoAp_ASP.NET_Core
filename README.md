@@ -25,9 +25,3 @@ This project is a To-Do application built with ASP.NET Core, designed to help us
 - SQL Server
 - Visual Studio (recommended) or another compatible IDE
 
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/yourusername/To-DoApp_ASP.NET_Core.git
