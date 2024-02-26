@@ -1,13 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap");
 
-
 .todo-item-container {
-  display: flex; /* Enables Flexbox */
-  justify-content: space-between; /* Space between the text and the button */
-  align-items: center; /* Aligns items vertically in the center */
-  width: 100%; /* Full width of the list item */
+  display: flex;
+  justify-content: space-between; /* This will push the text and buttons to opposite ends */
+  align-items: center; /* This will center them vertically */
 }
 
+.edit-button, .delete-button {
+  /* Add styles for your buttons here */
+  margin-left: 10px; /* This will add some space between the buttons */
+}
+.buttons-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+.edit-button {
+  background-color: #4CAF50; /* Add a distinct background color for edit */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-button:hover{
+  background-color: #3c913f;
+}
 .delete-button {
   background-color: #f44336;
   color: white;

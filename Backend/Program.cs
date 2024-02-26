@@ -43,13 +43,15 @@ if (app.Environment.IsDevelopment())
 // CRUD operations for TodoItems
 app.MapGet("/todoitems", async (AppDbContext db) =>
     await db.TodoItems.ToListAsync());
-
+    
+//read
 app.MapGet("/todoitems/{id}", async (int id, AppDbContext db) =>
     await db.TodoItems.FindAsync(id)
         is TodoItem todoItem
             ? Results.Ok(todoItem)
             : Results.NotFound());
 
+//create
 app.MapPost("/todoitems", async (TodoItem todoItem, AppDbContext db) =>
 {
     db.TodoItems.Add(todoItem);
@@ -58,21 +60,7 @@ app.MapPost("/todoitems", async (TodoItem todoItem, AppDbContext db) =>
     return Results.Created($"/todoitems/{todoItem.Id}", todoItem);
 });
 
-app.MapDelete("/todoitemsDelete/{id}", async (int id, AppDbContext db) =>
-{
-    var todoItem = await db.TodoItems.FindAsync(id);
-    if (todoItem == null)
-    {
-        return Results.NotFound();
-    }
-
-    db.TodoItems.Remove(todoItem);
-    await db.SaveChangesAsync();
-
-
-    return Results.Ok(new { message = "Item deleted successfully" });
-});
-
+//update
 app.MapPut("/todoitems/{id}", async (int id, TodoItem inputTodoItem, AppDbContext db) =>
 {
     var todoItem = await db.TodoItems.FindAsync(id);
@@ -87,6 +75,7 @@ app.MapPut("/todoitems/{id}", async (int id, TodoItem inputTodoItem, AppDbContex
     return Results.NoContent();
 });
 
+//delete
 app.MapDelete("/todoitems/{id}", async (int id, AppDbContext db) =>
 {
     if (await db.TodoItems.FindAsync(id) is TodoItem todoItem)
