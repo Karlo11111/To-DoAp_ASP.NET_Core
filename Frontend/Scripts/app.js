@@ -15,11 +15,29 @@ function loadTodos() {
       todos.forEach((todo) => {
         const item = document.createElement("li");
 
-        // Create a container for text and button to apply flexbox
+        // Create a container for text, checkbox and buttons to apply flexbox
         const container = document.createElement("div");
         container.classList.add("todo-item-container");
 
+        // Create and append the checkbox
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = todo.isComplete;
+        checkbox.classList.add("todo-checkbox");
+        checkbox.addEventListener("change", (event) => {
+          editTodo(todo.id, {
+            name: todo.name,
+            isComplete: event.target.checked,
+          });
+        });
+        container.appendChild(checkbox);
+
         const textSpan = document.createElement("span");
+        textSpan.textContent = todo.name;
+        if (todo.isComplete) {
+          textSpan.classList.add("completed");
+        }
+        container.appendChild(textSpan);
         textSpan.textContent = todo.name;
         container.appendChild(textSpan);
 

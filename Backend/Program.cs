@@ -88,5 +88,37 @@ app.MapDelete("/todoitems/{id}", async (int id, AppDbContext db) =>
     return Results.NotFound();
 });
 
+//querying
+app.MapGet("/todoitems", async (AppDbContext db, string? name) =>
+{
+    IQueryable<TodoItem> query = db.TodoItems;
+
+    if (!string.IsNullOrEmpty(name))
+    {
+        query = query.Where(t => t.Name.Contains(name));
+    }
+
+    return await query.ToListAsync();
+});
+
+//sorting
+app.MapGet("/todoitems", async (AppDbContext db, string? sortBy, string? order) =>
+{
+    IQueryable<TodoItem> query = db.TodoItems;
+
+    switch (sortBy)
+    {
+        case "name":
+            query = (order == "desc") ? query.OrderByDescending(t => t.Name) : query.OrderBy(t => t.Name);
+            break;
+        case "isComplete":
+            query = (order == "desc") ? query.OrderByDescending(t => t.IsComplete) : query.OrderBy(t => t.IsComplete);
+            break;
+    }
+
+    return await query.ToListAsync();
+});
+
+
 // Run the application
 app.Run();
