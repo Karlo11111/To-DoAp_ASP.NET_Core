@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="Styles/list.css">
+    <link rel="stylesheet" href="Styles/inputField.css">
+    <link rel="stylesheet" href="Styles/button.css">
+    <link rel="stylesheet" href="Styles/styles.css">
+</head>
+
+<body>
+    <div id="mainContainer">
+        <h1 class="headerMain">Todo List</h1>
+        <div class="Wrapper">
+            <div class="Input">
+                <input type="text" id="todoInput" class="Input-text" placeholder="Your task, e.g. clean the room">
+                <label for="input" class="Input-label">To-do task</label>
+            </div>
+        </div>
+
+        
+        <div class="container">
+            <div class="btn"><a href="#" id="addTodoButton" onclick="addTodo()">Add To-Do task</a></div>
+        </div>
+
+        <span id="inputWarning" style="display:none; color: red;">You need at least 3 characters to add a to-do
+            item.</span>
+
+        <section>
+            <div class="list">
+
+                <ul id="todoList">
+                    <!-- Todo items -->
+                </ul>
+            </div>
+            <div class="animation"></div>
+        </section>
+
+    </div>
+
+    <script src="Scripts/app.js"></script>
+</body>
+
+</html>

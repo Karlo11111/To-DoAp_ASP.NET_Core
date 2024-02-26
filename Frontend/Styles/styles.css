@@ -1,0 +1,21 @@
+.todo-item-container {
+  display: flex; /* Enables Flexbox */
+  justify-content: space-between; /* Space between the text and the button */
+  align-items: center; /* Aligns items vertically in the center */
+  width: 100%; /* Full width of the list item */
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
