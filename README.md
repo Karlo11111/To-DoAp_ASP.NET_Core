@@ -13,7 +13,7 @@ This project is a To-Do application built with ASP.NET Core, designed to help us
 - ASP.NET Core 6.0
 - Entity Framework Core
 - SQL Server for the database
-- Bootstrap for the front-end framework
+- HTML/CSS/JS for the front-end 
 
 ## Setup
 To run this project, install it locally using dotnet:
@@ -32,3 +32,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 MIT
 ## Technologies Used
+
+- ASP.NET CORE C#
+
+- HTML, CSS, JS
