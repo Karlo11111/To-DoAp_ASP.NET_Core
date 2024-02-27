@@ -254,3 +254,4 @@ E:\ASP.NET_CORE-projects\To-DoApp\Backend\obj\Debug\net8.0\refint\MyApp.dll
 E:\ASP.NET_CORE-projects\To-DoApp\Backend\obj\Debug\net8.0\MyApp.pdb
 E:\ASP.NET_CORE-projects\To-DoApp\Backend\obj\Debug\net8.0\MyApp.genruntimeconfig.cache
 E:\ASP.NET_CORE-projects\To-DoApp\Backend\obj\Debug\net8.0\ref\MyApp.dll
+E:\ASP.NET_CORE-projects\To-DoApp\Backend\obj\Debug\net8.0\MyApp.sourcelink.json

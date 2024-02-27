@@ -15,9 +15,13 @@ function loadTodos() {
       todos.forEach((todo) => {
         const item = document.createElement("li");
 
-        // Create a container for text, checkbox and buttons to apply flexbox
-        const container = document.createElement("div");
-        container.classList.add("todo-item-container");
+        // Create the main container for all elements
+        const mainContainer = document.createElement("div");
+        mainContainer.classList.add("todo-main-container");
+
+        // Create a container for the checkbox and text
+        const checkboxTextContainer = document.createElement("div");
+        checkboxTextContainer.classList.add("checkbox-text-container");
 
         // Create and append the checkbox
         const checkbox = document.createElement("input");
@@ -30,42 +34,48 @@ function loadTodos() {
             isComplete: event.target.checked,
           });
         });
-        container.appendChild(checkbox);
+        checkboxTextContainer.appendChild(checkbox);
 
+        // Create and append the text span
         const textSpan = document.createElement("span");
         textSpan.textContent = todo.name;
         if (todo.isComplete) {
           textSpan.classList.add("completed");
         }
-        container.appendChild(textSpan);
-        textSpan.textContent = todo.name;
-        container.appendChild(textSpan);
+        checkboxTextContainer.appendChild(textSpan);
+
+        // Append the checkbox and text container to the main container
+        mainContainer.appendChild(checkboxTextContainer);
 
         // Create a separate container for the buttons
         const buttonsContainer = document.createElement("div");
         buttonsContainer.classList.add("buttons-container");
 
+        // Create and append the edit button
         const editButton = document.createElement("button");
         editButton.textContent = "Edit";
-        editButton.classList.add("edit-button"); // Correct the class here to 'edit-button'
+        editButton.classList.add("edit-button");
         editButton.onclick = function () {
           showTodoInInput(todo);
         };
-        buttonsContainer.appendChild(editButton); // Append to buttons container
+        buttonsContainer.appendChild(editButton);
 
+        // Create and append the delete button
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("delete-button");
         deleteButton.onclick = function () {
           deleteTodoItem(todo.id);
         };
-        buttonsContainer.appendChild(deleteButton); // Append to buttons container
+        buttonsContainer.appendChild(deleteButton);
 
-        // Append the buttons container to the todo item container
-        container.appendChild(buttonsContainer);
+        // Append the buttons container to the main container
+        mainContainer.appendChild(buttonsContainer);
 
-        item.appendChild(container);
+        // Append the main container to the list item, then append the list item to the list
+        item.appendChild(mainContainer);
         list.appendChild(item);
+
       });
     });
 }
